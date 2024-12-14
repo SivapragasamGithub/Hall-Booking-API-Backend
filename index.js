@@ -38,9 +38,11 @@ app.post("/bookings", (req, res) => {
   );
 
   if (conflict) {
-    return res.status(400).json({
-      message: "Time conflict: Room already booked for the selected time.",
-    });
+    return res
+      .status(400)
+      .json({
+        message: "Time conflict: Room already booked for the selected time.",
+      });
   }
 
   const newBooking = { customerName, roomName, date, startTime, endTime };
